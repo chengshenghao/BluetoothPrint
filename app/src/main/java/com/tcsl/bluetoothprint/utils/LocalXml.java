@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.tcsl.bluetoothprint.MyApplication;
+import com.tcsl.bluetoothprint.print.QueuePrintManager;
+
+import cn.raise.app.print.IPrinter;
 
 
 /**
@@ -90,4 +93,95 @@ public class LocalXml {
         editor.apply();
     }
 
+    /**
+     * 获取默认打印机类型
+     */
+    public static int getPrinterType() {
+        return per.getInt("printer_type", QueuePrintManager.ENGINE_BT);
+    }
+
+    /**
+     * 设置默认打印机类型
+     */
+    public static void setPrinterType(int mode) {
+        per.edit().putInt("printer_type", mode).commit();
+    }
+
+    /**
+     * 获取打印纸宽度
+     */
+    public static int getPrintPaperMode() {
+        return per.getInt("print_paper_width", IPrinter.PAPER_58);
+    }
+
+    /**
+     * 设置打印纸宽度
+     */
+    public static void setPrintPaperMode(Context context, int mode) {
+        SharedPreferences sp;
+        sp = context.getSharedPreferences(share_xml, 0);
+        sp.edit().putInt("print_paper_width", mode).commit();
+    }
+
+    /**
+     * 企业LOGO开关
+     */
+    public static boolean getLogoSwitch() {
+        return per.getBoolean("logo_switch", false);
+    }
+
+    /**
+     * 企业LOGO开关
+     */
+    public static void setLogoSwitch(Context context, boolean isOn) {
+        SharedPreferences sp;
+        sp = context.getSharedPreferences(share_xml, 0);
+        sp.edit().putBoolean("logo_switch", isOn).commit();
+    }
+
+    /**
+     * 优惠引导语开关
+     */
+    public static boolean getPreferSwitch() {
+        return per.getBoolean("prefer_switch", false);
+    }
+
+    /**
+     * 优惠引导语开关
+     */
+    public static void setPreferSwitch(Context context, boolean isOn) {
+        SharedPreferences sp;
+        sp = context.getSharedPreferences(share_xml, 0);
+        sp.edit().putBoolean("prefer_switch", isOn).commit();
+    }
+
+    /**
+     * 打印二维码的类型
+     *
+     * @param b true:二维码方式   false:图片方式
+     */
+    public static void setPrintQrType(boolean b) {
+        per.edit().putBoolean("PrintQrType", b).apply();
+    }
+
+    /**
+     * 打印二维码的类型
+     */
+    public static boolean getPrintQrType() {
+        return false;
+    }
+
+    /**
+     * 广告语开关
+     */
+    public static boolean getAdvertiseSwitch() {
+        return per.getBoolean("advertise_switch", false);
+    }
+
+    /**
+     * 广告语开关
+     */
+    public static void setAdvertiseSwitch(Context context, boolean isOn) {
+        per.edit().putBoolean("advertise_switch", isOn).commit();
+    }
 }

@@ -28,4 +28,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "com.jakewharton:butterknife:$rootProject.ext.butterknifeLibraryVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeLibraryVersion"
+    implementation project(path: ':printer')
+
+    /*rxjava  rxbinding  sqlbrite*/
+    implementation "io.reactivex:rxjava:$rootProject.rxjavaVersion"
+    implementation "io.reactivex:rxandroid:$rootProject.rxandroidVersion"
+    implementation "com.squareup.sqlbrite:sqlbrite:$rootProject.sqlbriteVersion"
+    implementation "com.jakewharton.rxbinding:rxbinding:$rootProject.rxbindingVersion"
 }
