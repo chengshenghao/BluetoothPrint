@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!--通用对话框动画-->
+    <style name="anim_dialog_right_right">
+        <item name="android:windowEnterAnimation">@anim/anim_enter_left</item>
+        <item name="android:windowExitAnimation">@anim/anim_exit_right</item>
+    </style>
+</resources>
